@@ -1,0 +1,53 @@
+<template>
+    <base-layout>
+        <template v-slot:content>
+            <swiper
+                :slides-per-view="3"
+                :space-between="50"
+                @swiper="onSwiper"
+                @slideChange="onSlideChange"
+            >
+                <swiper-slide>Slide 1</swiper-slide>
+                <swiper-slide>Slide 2</swiper-slide>
+                <swiper-slide>Slide 3</swiper-slide>
+                ...
+            </swiper>
+        </template>
+    </base-layout>
+</template>
+
+<script>
+import BaseLayout from './Layouts/BaseLayout.vue';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { IonicSwiper } from '@ionic/vue';
+
+import 'swiper/swiper-bundle.min.css';
+// import '@ionic/vue/css/ionic-swiper.css';
+
+SwiperCore.use([IonicSwiper, Navigation, Pagination]);
+
+export default {
+    components: { 
+        Swiper, 
+        SwiperSlide, 
+        BaseLayout
+    },
+    setup() {
+      const onSwiper = (swiper) => {
+        console.log(swiper);
+      };
+      const onSlideChange = () => {
+        console.log('slide change');
+      };
+      return {
+        onSwiper,
+        onSlideChange,
+      };
+    },
+};
+
+</script>
+
+<style>
+</style>

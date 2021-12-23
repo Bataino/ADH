@@ -1,0 +1,7 @@
+{
+  "name": "Adherance Clinic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
